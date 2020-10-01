@@ -457,7 +457,7 @@ class Music(commands.Cog, wavelink.WavelinkMixin):
 
         await player.connect(channel.id)
 
-    @commands.command(aliases=['play', 'Play', 'p', 'P'])
+    @commands.command()
     async def play(self, ctx: commands.Context, *, query: str):
         """Play or queue a song with the given query."""
         player: Player = self.bot.wavelink.get_player(guild_id=ctx.guild.id, cls=Player, context=ctx)
@@ -536,7 +536,7 @@ class Music(commands.Cog, wavelink.WavelinkMixin):
         else:
             await ctx.send(f'{ctx.author.mention} has voted to resume the player.', delete_after=15)
 
-    @commands.command(aliases=['skip', 'n'])
+    @commands.command()
     async def skip(self, ctx: commands.Context):
         """Skip the currently playing song."""
         player: Player = self.bot.wavelink.get_player(guild_id=ctx.guild.id, cls=Player, context=ctx)
