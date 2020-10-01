@@ -337,7 +337,7 @@ class Music(commands.Cog, wavelink.WavelinkMixin):
             for node in previous.values():
                 await node.destroy()
 
-        nodes = {'MAIN': {"host":"theglade.herokuapp.com","port": 80,"rest_url": "http://theglade.herokuapp.com","password": "youshallnotpass","identifier": "MAIN","region": "europe"}}
+        nodes = {'MAIN': {"host":"theglade.herokuapp.com","port": 80,"rest_uri": "http://theglade.herokuapp.com","password": "youshallnotpass","identifier": "MAIN","region": "europe"}}
 
         for n in nodes.values():
             await self.bot.wavelink.initiate_node(**n)
