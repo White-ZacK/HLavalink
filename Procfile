@@ -1,2 +1,2 @@
 web: python3 bootstrap.py
-worker: python bot.py
+worker: python3 bot.py
