@@ -23,6 +23,7 @@ This example uses the following whihch must be installed prior to running:
     - Python 3.7+
 --------------------------------------------------------------------------------
 """
+import os
 import asyncio
 import async_timeout
 import copy
@@ -37,7 +38,7 @@ from discord.ext import commands, menus
 
 # URL matching REGEX...
 URL_REG = re.compile(r'https?://(?:www\.)?.+')
-
+PASSWORD = os.environ.get('PASSWORD')
 
 class NoChannelProvided(commands.CommandError):
     """Error raised when no suitable voice channel was supplied."""
@@ -336,13 +337,7 @@ class Music(commands.Cog, wavelink.WavelinkMixin):
             for node in previous.values():
                 await node.destroy()
 
-        nodes = {'MAIN': {"theglade.herokuapp.com",
-                          "port": "80",
-                          "rest_url": "http://theglade.herokuapp.com",
-                          "password": os.environ.get('PASSWORD'),
-                          "identifier": "MAIN",
-                          "region": "europe"
-                          }}
+        nodes = {'MAIN': {"theglade.herokuapp.com","port": "80","rest_url": "http://theglade.herokuapp.com","password": PASSWORD,"identifier": "MAIN","region": "europe"}}
 
         for n in nodes.values():
             await self.bot.wavelink.initiate_node(**n)
