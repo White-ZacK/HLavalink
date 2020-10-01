@@ -337,7 +337,7 @@ class Music(commands.Cog, wavelink.WavelinkMixin):
                 await node.destroy()
 
         nodes = {'MAIN': {"theglade.herokuapp.com",
-                          "port": 80,
+                          "port": "80",
                           "rest_url": "http://theglade.herokuapp.com",
                           "password": os.environ.get('PASSWORD'),
                           "identifier": "MAIN",
